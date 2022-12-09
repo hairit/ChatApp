@@ -45,9 +45,10 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(38, 137);
+            this.label1.Location = new System.Drawing.Point(28, 111);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(98, 16);
+            this.label1.Size = new System.Drawing.Size(81, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Tên đăng nhập";
             // 
@@ -55,17 +56,19 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(109, 22);
+            this.label2.Location = new System.Drawing.Point(82, 18);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(186, 32);
+            this.label2.Size = new System.Drawing.Size(142, 26);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tạo tài khoản";
             // 
             // btnDangKy
             // 
-            this.btnDangKy.Location = new System.Drawing.Point(213, 287);
+            this.btnDangKy.Location = new System.Drawing.Point(160, 233);
+            this.btnDangKy.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnDangKy.Name = "btnDangKy";
-            this.btnDangKy.Size = new System.Drawing.Size(128, 35);
+            this.btnDangKy.Size = new System.Drawing.Size(96, 28);
             this.btnDangKy.TabIndex = 3;
             this.btnDangKy.Text = "Đăng ký";
             this.btnDangKy.UseVisualStyleBackColor = true;
@@ -75,56 +78,64 @@
             // 
             this.lbWarning.AutoSize = true;
             this.lbWarning.ForeColor = System.Drawing.Color.Crimson;
-            this.lbWarning.Location = new System.Drawing.Point(144, 259);
+            this.lbWarning.Location = new System.Drawing.Point(108, 210);
+            this.lbWarning.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbWarning.Name = "lbWarning";
-            this.lbWarning.Size = new System.Drawing.Size(70, 16);
+            this.lbWarning.Size = new System.Drawing.Size(0, 13);
             this.lbWarning.TabIndex = 4;
-            this.lbWarning.Text = "123123123";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(22, 224);
+            this.label5.Location = new System.Drawing.Point(16, 182);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(114, 16);
+            this.label5.Size = new System.Drawing.Size(93, 13);
             this.label5.TabIndex = 5;
             this.label5.Text = "Nhập lại mật khẩu";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(75, 180);
+            this.label6.Location = new System.Drawing.Point(56, 146);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(61, 16);
+            this.label6.Size = new System.Drawing.Size(52, 13);
             this.label6.TabIndex = 6;
             this.label6.Text = "Mật khẩu";
             // 
             // tbUsername
             // 
-            this.tbUsername.Location = new System.Drawing.Point(147, 134);
+            this.tbUsername.Location = new System.Drawing.Point(110, 109);
+            this.tbUsername.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbUsername.Name = "tbUsername";
-            this.tbUsername.Size = new System.Drawing.Size(194, 22);
+            this.tbUsername.Size = new System.Drawing.Size(146, 20);
             this.tbUsername.TabIndex = 8;
             // 
             // tbRePassword
             // 
-            this.tbRePassword.Location = new System.Drawing.Point(147, 221);
+            this.tbRePassword.Location = new System.Drawing.Point(110, 180);
+            this.tbRePassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbRePassword.Name = "tbRePassword";
-            this.tbRePassword.Size = new System.Drawing.Size(194, 22);
+            this.tbRePassword.Size = new System.Drawing.Size(146, 20);
             this.tbRePassword.TabIndex = 9;
+            this.tbRePassword.UseSystemPasswordChar = true;
             // 
             // tbPassword
             // 
-            this.tbPassword.Location = new System.Drawing.Point(147, 177);
+            this.tbPassword.Location = new System.Drawing.Point(110, 144);
+            this.tbPassword.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbPassword.Name = "tbPassword";
-            this.tbPassword.Size = new System.Drawing.Size(194, 22);
+            this.tbPassword.Size = new System.Drawing.Size(146, 20);
             this.tbPassword.TabIndex = 10;
+            this.tbPassword.UseSystemPasswordChar = true;
             // 
             // btnBackLogin
             // 
-            this.btnBackLogin.Location = new System.Drawing.Point(67, 287);
+            this.btnBackLogin.Location = new System.Drawing.Point(50, 233);
+            this.btnBackLogin.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnBackLogin.Name = "btnBackLogin";
-            this.btnBackLogin.Size = new System.Drawing.Size(128, 35);
+            this.btnBackLogin.Size = new System.Drawing.Size(96, 28);
             this.btnBackLogin.TabIndex = 11;
             this.btnBackLogin.Text = "Quay về";
             this.btnBackLogin.UseVisualStyleBackColor = true;
@@ -132,25 +143,27 @@
             // 
             // tbName
             // 
-            this.tbName.Location = new System.Drawing.Point(147, 93);
+            this.tbName.Location = new System.Drawing.Point(110, 76);
+            this.tbName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.tbName.Name = "tbName";
-            this.tbName.Size = new System.Drawing.Size(194, 22);
+            this.tbName.Size = new System.Drawing.Size(146, 20);
             this.tbName.TabIndex = 13;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(38, 96);
+            this.label3.Location = new System.Drawing.Point(28, 78);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 16);
+            this.label3.Size = new System.Drawing.Size(81, 13);
             this.label3.TabIndex = 12;
             this.label3.Text = "Tên đăng nhập";
             // 
             // RegisterForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(407, 371);
+            this.ClientSize = new System.Drawing.Size(305, 301);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btnBackLogin);
@@ -163,6 +176,7 @@
             this.Controls.Add(this.btnDangKy);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "RegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Register";

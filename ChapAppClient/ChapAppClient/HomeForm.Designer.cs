@@ -58,6 +58,7 @@
             this.lvFriend.Size = new System.Drawing.Size(228, 204);
             this.lvFriend.TabIndex = 1;
             this.lvFriend.UseCompatibleStateImageBehavior = false;
+            this.lvFriend.View = System.Windows.Forms.View.List;
             // 
             // tbMessage
             // 
@@ -110,6 +111,7 @@
             this.btSearch.TabIndex = 7;
             this.btSearch.Text = "Tìm";
             this.btSearch.UseVisualStyleBackColor = true;
+            this.btSearch.Click += new System.EventHandler(this.btSearch_Click);
             // 
             // tbSearchFriend
             // 
@@ -171,6 +173,6 @@
         public System.Windows.Forms.Button button2;
         public System.Windows.Forms.Button btSearch;
         public System.Windows.Forms.RichTextBox tbSearchFriend;
-        public System.Windows.Forms.ListView lvGroup;
+        public System.Windows.Forms.ListView lvNotification;
     }
 }
