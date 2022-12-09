@@ -1,9 +1,11 @@
-﻿using ChatAppServer.Model;
+﻿using ChatAppServer.DTO;
+using ChatAppServer.Model;
 using ChatAppServer.ServerSocket;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace ChatAppServer.Controller
@@ -25,6 +27,11 @@ namespace ChatAppServer.Controller
                         return await sendChat(model, workers, from);
                     }
                     break;
+                case "get":
+                    {
+                        var model = new GetByGroup().GetFromJson(json.content);
+                    }
+                    break;
                 default: return false;
             }
             return false;
@@ -34,7 +41,7 @@ namespace ChatAppServer.Controller
             try
             {
                 var groupUsers = _context.GroupUsers.Where(x => x.GroupId == mess.GroupId).ToList();
-                var message = new Base { action = "newmess", model = "chatmessage", content = mess.ParseToJson() };
+                var message = new Base { action = "newmess", model = "chat", content = mess.ParseToJson() };
                 _context.ChatMessages.Add(mess);
                 foreach (var user in groupUsers)
                 {
@@ -48,6 +55,22 @@ namespace ChatAppServer.Controller
                 return false;
             }
                 
+        }
+        private async Task<string> getAllMessage(GetByGroup model)
+        {
+            try
+            {
+                var mess = _context.ChatMessages.Where(x => x.GroupId == model.GroupID).ToList();
+                if(mess!=null)
+                {
+                    var json = JsonSerializer.Serialize(mess);
+                    return json;
+                }
+                return null;
+            } catch(Exception ex)
+            {
+                return "Something went wrong!";
+            }
         }
     }
 }
