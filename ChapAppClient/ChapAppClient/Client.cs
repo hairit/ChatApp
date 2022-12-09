@@ -13,6 +13,9 @@ namespace ChapAppClient
     {
         private TcpClient socket;
         private Stream stream;
+        public LoginForm loginFrom;
+        public HomeForm home;
+        public RegisterForm registerForm;
         public Client(TcpClient socket,Stream stream)
         {
             this.socket = socket;

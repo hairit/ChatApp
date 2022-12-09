@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Sockets;
@@ -17,15 +18,19 @@ namespace ChapAppClient
 {
     public partial class LoginForm : Form
     {
-        private Client client;
-
+        private TcpClient socket;
+        private Stream stream;
+        private HomeForm homeForm;
+        private RegisterForm registerForm;
         public LoginForm()
         {
             InitializeComponent();
-            TcpClient tcpClient = new TcpClient(tbServer.Text, 2008);
-            this.client = new Client(tcpClient, tcpClient.GetStream());
-            this.client.Start();
-            client.Send("");
+            this.socket = new TcpClient(tbServer.Text, 2008);
+            this.stream = socket.GetStream();
+            Start();
+            Send("");
+            this.homeForm = new HomeForm(this);
+            this.registerForm = new RegisterForm(this);
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
@@ -55,25 +60,45 @@ namespace ChapAppClient
                 content = account.ParseToJson()
 
             };
-            this.client.Send(request.ParseToJson());
+            Send(request.ParseToJson());
         }
 
         private void btnDangky_Click(object sender, EventArgs e)
         {
-            RegisterForm registerForm = new RegisterForm(this.client,this);
+            RegisterForm registerForm = new RegisterForm(this);
             registerForm.Show();
             registerForm.StartPosition = FormStartPosition.CenterScreen;
-            this.hideForm();
-        }
-
-        private void showForm()
-        {
-            this.Show();
-        }
-
-        private void hideForm()
-        {
             this.Hide();
+        }
+
+        public void Start()
+        {
+            new Thread(Run).Start();
+        }
+
+        public void Send(string message)
+        {
+            byte[] buffer = Encoding.UTF8.GetBytes(message);
+            this.stream.Write(buffer, 0, buffer.Length);
+        }
+
+        private void Run()
+        {
+            byte[] buffer = new byte[2048];
+            try
+            {
+                while (true)
+                {
+                    int receivedBytes = stream.Read(buffer, 0, buffer.Length);
+                    if (receivedBytes < 1)
+                        break;
+                    string message = Encoding.UTF8.GetString(buffer, 0, receivedBytes);
+                    Console.WriteLine(message);
+                }
+            }
+            catch (IOException) { }
+            catch (ObjectDisposedException) { }
+            Environment.Exit(0);
         }
     }
 }

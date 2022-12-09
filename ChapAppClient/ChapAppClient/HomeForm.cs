@@ -10,11 +10,13 @@ using System.Windows.Forms;
 
 namespace ChapAppClient
 {
-    public partial class Home : Form
+    public partial class HomeForm : Form
     {
-        public Home()
+        private LoginForm loginFrom;
+        public HomeForm(LoginForm loginForm)
         {
             InitializeComponent();
+            this.loginFrom = loginForm;
         }
 
         private void listView2_SelectedIndexChanged(object sender, EventArgs e)
