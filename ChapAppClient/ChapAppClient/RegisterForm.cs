@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using ChatAppServer.DTO;
 using ChatAppServer.Model;
 
 namespace ChapAppClient
