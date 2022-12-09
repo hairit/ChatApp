@@ -87,6 +87,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\Base.cs" />
+    <Compile Include="DTO\GetUser.cs" />
+    <Compile Include="DTO\Login.cs" />
+    <Compile Include="DTO\Response.cs" />
     <Compile Include="HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,14 +103,11 @@
     <Compile Include="LoginForm.Designer.cs">
       <DependentUpon>LoginForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Model\Base.cs" />
     <Compile Include="Model\ChatGroup.cs" />
     <Compile Include="Model\ChatMessage.cs" />
     <Compile Include="Model\ChatUser.cs" />
     <Compile Include="Model\Context.cs" />
     <Compile Include="Model\GroupUser.cs" />
-    <Compile Include="Model\Login.cs" />
-    <Compile Include="Model\Response.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -25,7 +25,7 @@ namespace ChatAppServer.Controller
                 case "login":
                     {
                         var model = new Login().GetFromJson(json.content);
-                        var response = new response { action = "login", content = await Login(model) };
+                        var response = new response { action = "login", content =  Login(model).Result };
                         from.Send(response.ParseToJson());
                         from.Username = model.UserName;
                         return true;
@@ -34,7 +34,7 @@ namespace ChatAppServer.Controller
                 case "register":
                     {
                         var model = new ChatUser().GetFromJson(json.content);
-                        var response = new response { action = "register", content = await SignUp(model) };
+                        var response = new response { action = "register", content =  SignUp(model).Result };
                         from.Send(response.ParseToJson());
                         return true;
                     }
@@ -42,7 +42,7 @@ namespace ChatAppServer.Controller
                 case "get":
                     {
                         var model = new GetUser().GetFromJson(json.content);
-                        var response = new response { action = "get", content = await Get(model) };
+                        var response = new response { action = "get", content =  Get(model).Result };
                         from.Send(response.ParseToJson());
                         return true;
                     }
@@ -50,7 +50,7 @@ namespace ChatAppServer.Controller
                 case "changepass":
                     {
                         var model = new ChangePass().GetFromJson(json.content);
-                        var response = new response { action = "changepass", content =};
+                        var response = new response { action = "changepass", content = ChangePage(model).Result };
                     }
                     break;
                 default:return false;
@@ -72,19 +72,19 @@ namespace ChatAppServer.Controller
         {
             try
             {
-                if (_context.ChatUsers.Any(x => x.UserName == model.UserName)) return "Account conflict!";
+                if (_context.ChatUsers.Any(x => x.UserName == model.UserName)) return "account conflict";
                 _context.ChatUsers.Add(model);
                 await _context.SaveChangesAsync();
-                return "Account created";
+                return "successfully created";
             }
             catch(Exception ex)
             {
-                return "Something went wrong!";
+                return "something went wrong";
             }
         }
         private async Task<string> Get(GetUser model)
         {
-            if (!_context.ChatUsers.Any(x => x.UserName == model.UserName)) return "User is not exist!";
+            if (!_context.ChatUsers.Any(x => x.UserName == model.UserName)) return "user is not exist";
             var user = _context.ChatUsers.FirstOrDefault(x => x.UserName == model.UserName);
             return user.ParseToJson();
         }
@@ -95,17 +95,17 @@ namespace ChatAppServer.Controller
                 if (_context.ChatUsers.Any(x => x.UserName == model.UserName))
                 {
                     var user = _context.ChatUsers.First(x => x.UserName == model.UserName);
-                    if (user.Password != model.CurrentPass) return "Your current password is wrong!";
+                    if (user.Password != model.CurrentPass) return "your current password is wrong";
                     _context.ChatUsers.Remove(user);
                     user.Password = model.CurrentPass;
                     _context.ChatUsers.Add(user);
                     await _context.SaveChangesAsync();
-                    return "Your password changed!";
+                    return "Your password changed";
                 }
-                else return "Something went wrong!";
+                else return "something went wrong";
             } catch(Exception ex)
             {
-                return "Some thing went wrong, please contact your admin!";
+                return "some thing went wrong, please contact your admin";
             }
         }
     }
