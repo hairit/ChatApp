@@ -1,6 +1,6 @@
 ﻿namespace ChapAppClient
 {
-    partial class Home
+    partial class HomeForm
     {
         /// <summary>
         /// Required designer variable.
@@ -29,39 +29,40 @@
         private void InitializeComponent()
         {
             this.listView1 = new System.Windows.Forms.ListView();
-            this.listView2 = new System.Windows.Forms.ListView();
+            this.lvFriend = new System.Windows.Forms.ListView();
             this.tbMessage = new System.Windows.Forms.RichTextBox();
             this.btSendMessage = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btApprove = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.btSearch = new System.Windows.Forms.Button();
+            this.tbSearchFriend = new System.Windows.Forms.RichTextBox();
+            this.lvNotification = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // listView1
             // 
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(564, 46);
+            this.listView1.Location = new System.Drawing.Point(320, 12);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(673, 383);
+            this.listView1.Size = new System.Drawing.Size(917, 527);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             // 
-            // listView2
+            // lvFriend
             // 
-            this.listView2.HideSelection = false;
-            this.listView2.Location = new System.Drawing.Point(12, 46);
-            this.listView2.Name = "listView2";
-            this.listView2.Size = new System.Drawing.Size(236, 455);
-            this.listView2.TabIndex = 1;
-            this.listView2.UseCompatibleStateImageBehavior = false;
-            this.listView2.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
+            this.lvFriend.HideSelection = false;
+            this.lvFriend.Location = new System.Drawing.Point(12, 12);
+            this.lvFriend.Name = "lvFriend";
+            this.lvFriend.Size = new System.Drawing.Size(302, 250);
+            this.lvFriend.TabIndex = 1;
+            this.lvFriend.UseCompatibleStateImageBehavior = false;
+            this.lvFriend.SelectedIndexChanged += new System.EventHandler(this.listView2_SelectedIndexChanged);
             // 
             // tbMessage
             // 
-            this.tbMessage.Location = new System.Drawing.Point(335, 545);
+            this.tbMessage.Location = new System.Drawing.Point(320, 545);
             this.tbMessage.Name = "tbMessage";
-            this.tbMessage.Size = new System.Drawing.Size(821, 46);
+            this.tbMessage.Size = new System.Drawing.Size(836, 46);
             this.tbMessage.TabIndex = 2;
             this.tbMessage.Text = "";
             // 
@@ -76,14 +77,14 @@
             this.btSendMessage.Text = "Send";
             this.btSendMessage.UseVisualStyleBackColor = false;
             // 
-            // button1
+            // btApprove
             // 
-            this.button1.Location = new System.Drawing.Point(12, 545);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(147, 46);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btApprove.Location = new System.Drawing.Point(12, 545);
+            this.btApprove.Name = "btApprove";
+            this.btApprove.Size = new System.Drawing.Size(147, 46);
+            this.btApprove.TabIndex = 4;
+            this.btApprove.Text = "Đồng ý";
+            this.btApprove.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -91,38 +92,48 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(147, 46);
             this.button2.TabIndex = 5;
-            this.button2.Text = "button2";
+            this.button2.Text = "Từ chối";
             this.button2.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // btSearch
             // 
-            this.button3.Location = new System.Drawing.Point(335, 507);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(82, 32);
-            this.button3.TabIndex = 7;
-            this.button3.Text = "button3";
-            this.button3.UseVisualStyleBackColor = true;
+            this.btSearch.Location = new System.Drawing.Point(245, 268);
+            this.btSearch.Name = "btSearch";
+            this.btSearch.Size = new System.Drawing.Size(69, 32);
+            this.btSearch.TabIndex = 7;
+            this.btSearch.Text = "Tìm";
+            this.btSearch.UseVisualStyleBackColor = true;
             // 
-            // richTextBox1
+            // tbSearchFriend
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 507);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(236, 32);
-            this.richTextBox1.TabIndex = 8;
-            this.richTextBox1.Text = "";
+            this.tbSearchFriend.Location = new System.Drawing.Point(12, 268);
+            this.tbSearchFriend.Name = "tbSearchFriend";
+            this.tbSearchFriend.Size = new System.Drawing.Size(227, 32);
+            this.tbSearchFriend.TabIndex = 8;
+            this.tbSearchFriend.Text = "";
+            // 
+            // lvNotification
+            // 
+            this.lvNotification.HideSelection = false;
+            this.lvNotification.Location = new System.Drawing.Point(12, 306);
+            this.lvNotification.Name = "lvNotification";
+            this.lvNotification.Size = new System.Drawing.Size(302, 233);
+            this.lvNotification.TabIndex = 9;
+            this.lvNotification.UseCompatibleStateImageBehavior = false;
             // 
             // Home
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1249, 601);
-            this.Controls.Add(this.richTextBox1);
-            this.Controls.Add(this.button3);
+            this.Controls.Add(this.lvNotification);
+            this.Controls.Add(this.tbSearchFriend);
+            this.Controls.Add(this.btSearch);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btApprove);
             this.Controls.Add(this.btSendMessage);
             this.Controls.Add(this.tbMessage);
-            this.Controls.Add(this.listView2);
+            this.Controls.Add(this.lvFriend);
             this.Controls.Add(this.listView1);
             this.Name = "Home";
             this.Text = "Home";
@@ -133,12 +144,13 @@
         #endregion
 
         private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ListView listView2;
+        private System.Windows.Forms.ListView lvFriend;
         private System.Windows.Forms.RichTextBox tbMessage;
         private System.Windows.Forms.Button btSendMessage;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btApprove;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Button btSearch;
+        private System.Windows.Forms.RichTextBox tbSearchFriend;
+        private System.Windows.Forms.ListView lvNotification;
     }
 }

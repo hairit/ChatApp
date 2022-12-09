@@ -6,13 +6,11 @@ namespace ChapAppClient
 {
     public partial class RegisterForm : Form
     {
-        private readonly Client _client;
         private readonly LoginForm _loginForm;
 
-        public RegisterForm(Client client, LoginForm loginForm)
+        public RegisterForm(LoginForm loginForm)
         {
             InitializeComponent();
-            this._client = client;
             this._loginForm = loginForm;
         }
 
@@ -45,7 +43,7 @@ namespace ChapAppClient
                 content = user.ParseToJson()
             };
 
-            _client.Send(request.ParseToJson());
+            //_client.Send(request.ParseToJson());
         }
 
         private void RegisterForm_FormClosed(object sender, FormClosedEventArgs e)
