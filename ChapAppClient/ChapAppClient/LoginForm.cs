@@ -1,11 +1,15 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Net.Sockets;
 using System.Text;
+using System.Text.Json;
 using System.Threading;
 using System.Windows.Forms;
 using ChatAppServer.DTO;
 using ChatAppServer.Model;
+using static System.Net.Mime.MediaTypeNames;
+using Application = System.Windows.Forms.Application;
 
 namespace ChapAppClient
 {
@@ -16,6 +20,8 @@ namespace ChapAppClient
         private delegate void HideFormDelegate();
 
         private delegate void ShowFormDelegate();
+
+        private delegate void AddItemForListView(string name);
 
         private TcpClient socket;
         private Stream stream;
@@ -151,18 +157,6 @@ namespace ChapAppClient
             }
         }
 
-        public void Start()
-        {
-            new Thread(Run).Start();
-        }
-
-        public void Send(string message)
-        {
-            var a = 1;
-            byte[] buffer = Encoding.UTF8.GetBytes(message);
-            this.stream.Write(buffer, 0, buffer.Length);
-        }
-
         private void Run()
         {
             byte[] buffer = new byte[2048];
@@ -225,12 +219,48 @@ namespace ChapAppClient
                         setRegisterWarning("Tạo tài khoản thất bại.");
                         return;
                     }
+
                     break;
-                case "user":
+                case "getbyname":
+                    try
+                    {
+                        var users = JsonSerializer.Deserialize<List<ChatUser>>(response.content);
+                        if (users.Count > 0)
+                        {
+                            for (int i = 0; i < users.Count; i++)
+                            {
+                                this.homeForm.addItemForFriendListView(users[i].Name);
+                            }
+                        }
+                    }
+                    catch (Exception e)
+                    {
+                        return;
+                    }
+
                     break;
                 default:
                     break;
             }
+        }
+
+        public void Start()
+        {
+            new Thread(Run).Start();
+        }
+
+        public void Send(string message)
+        {
+            var a = 1;
+            byte[] buffer = Encoding.UTF8.GetBytes(message);
+            this.stream.Write(buffer, 0, buffer.Length);
+        }
+
+        public void searchUserByName(string name)
+        {
+            GetUserByName userByName = new GetUserByName() { Name = name };
+            Base request = new Base() { model = "user", action = "getbyname", content = userByName.ParseToJson() };
+            Send(request.ParseToJson());
         }
     }
 }

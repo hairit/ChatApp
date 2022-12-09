@@ -58,6 +58,7 @@
             this.lvFriend.Size = new System.Drawing.Size(228, 204);
             this.lvFriend.TabIndex = 1;
             this.lvFriend.UseCompatibleStateImageBehavior = false;
+            this.lvFriend.View = System.Windows.Forms.View.List;
             // 
             // tbMessage
             // 
@@ -109,6 +110,7 @@
             this.btSearch.TabIndex = 7;
             this.btSearch.Text = "Tìm";
             this.btSearch.UseVisualStyleBackColor = true;
+            this.btSearch.Click += new System.EventHandler(this.btSearch_Click);
             // 
             // tbSearchFriend
             // 
@@ -147,20 +149,21 @@
             this.Name = "HomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.HomeForm_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ListView lvFriend;
-        private System.Windows.Forms.RichTextBox tbMessage;
-        private System.Windows.Forms.Button btSendMessage;
-        private System.Windows.Forms.Button btApprove;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btSearch;
-        private System.Windows.Forms.RichTextBox tbSearchFriend;
-        private System.Windows.Forms.ListView lvNotification;
+        public System.Windows.Forms.ListView listView1;
+        public System.Windows.Forms.ListView lvFriend;
+        public System.Windows.Forms.RichTextBox tbMessage;
+        public System.Windows.Forms.Button btSendMessage;
+        public System.Windows.Forms.Button btApprove;
+        public System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button btSearch;
+        public System.Windows.Forms.RichTextBox tbSearchFriend;
+        public System.Windows.Forms.ListView lvNotification;
     }
 }

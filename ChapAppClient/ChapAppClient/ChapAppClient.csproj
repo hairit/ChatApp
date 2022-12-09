@@ -89,6 +89,7 @@
   <ItemGroup>
     <Compile Include="DTO\Base.cs" />
     <Compile Include="DTO\GetUser.cs" />
+    <Compile Include="DTO\GetUserByName.cs" />
     <Compile Include="DTO\Login.cs" />
     <Compile Include="DTO\Response.cs" />
     <Compile Include="HomeForm.cs">

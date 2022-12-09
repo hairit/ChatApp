@@ -92,6 +92,7 @@
     <Compile Include="DTO\AddMember.cs" />
     <Compile Include="DTO\ChangePass.cs" />
     <Compile Include="DTO\GetByGroup.cs" />
+    <Compile Include="DTO\GetUserByName.cs" />
     <Compile Include="DTO\GetUser.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
