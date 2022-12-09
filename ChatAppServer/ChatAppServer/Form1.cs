@@ -28,7 +28,7 @@ namespace ChatAppServer
         public Form1()
         {
             InitializeComponent();
-            serverSocket = new TcpListener(IPAddress.Parse("192.168.3.58"), 2008);
+            serverSocket = new TcpListener(IPAddress.Parse("192.168.3.65"), 2008);
             serverSocket.Start();
         }
 

@@ -3,6 +3,7 @@ using ChatAppServer.Model;
 using ChatAppServer.ServerSocket;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -30,7 +31,7 @@ namespace ChatAppServer.Controller
                         return true;
                     }
                     break;
-                case "signup":
+                case "register":
                     {
                         var model = new ChatUser().GetFromJson(json.content);
                         var response = new response { action = "register", content = await SignUp(model) };
@@ -46,6 +47,12 @@ namespace ChatAppServer.Controller
                         return true;
                     }
                     break;
+                case "changepass":
+                    {
+                        var model = new ChangePass().GetFromJson(json.content);
+                        var response = new response { action = "changepass", content =};
+                    }
+                    break;
                 default:return false;
             }
             return false;
@@ -58,7 +65,7 @@ namespace ChatAppServer.Controller
             {
                 if (!_context.ChatUsers.Any(x => x.UserName == model.UserName))
                     return "Your username or password was wrong!";
-                return "Login success!";
+                return _context.ChatUsers.First(x=>x.UserName==model.UserName).ParseToJson();
             }
         }
         private async Task<string> SignUp(ChatUser model)
@@ -81,6 +88,25 @@ namespace ChatAppServer.Controller
             var user = _context.ChatUsers.FirstOrDefault(x => x.UserName == model.UserName);
             return user.ParseToJson();
         }
-
+        private async Task<string> ChangePage(ChangePass model)
+        {
+            try
+            {
+                if (_context.ChatUsers.Any(x => x.UserName == model.UserName))
+                {
+                    var user = _context.ChatUsers.First(x => x.UserName == model.UserName);
+                    if (user.Password != model.CurrentPass) return "Your current password is wrong!";
+                    _context.ChatUsers.Remove(user);
+                    user.Password = model.CurrentPass;
+                    _context.ChatUsers.Add(user);
+                    await _context.SaveChangesAsync();
+                    return "Your password changed!";
+                }
+                else return "Something went wrong!";
+            } catch(Exception ex)
+            {
+                return "Some thing went wrong, please contact your admin!";
+            }
+        }
     }
 }
