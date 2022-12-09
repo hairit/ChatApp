@@ -29,13 +29,17 @@
         private void InitializeComponent()
         {
             this.listView1 = new System.Windows.Forms.ListView();
-            this.lvFriend = new System.Windows.Forms.ListView();
             this.tbMessage = new System.Windows.Forms.RichTextBox();
             this.btSendMessage = new System.Windows.Forms.Button();
             this.btApprove = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.btSearch = new System.Windows.Forms.Button();
             this.tbSearchFriend = new System.Windows.Forms.RichTextBox();
+            this.lvNotification = new System.Windows.Forms.ListView();
+            this.dgvFriend = new System.Windows.Forms.DataGridView();
+            this.pickColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.colUsers = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFriend)).BeginInit();
             this.lvGroup = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
@@ -48,17 +52,6 @@
             this.listView1.Size = new System.Drawing.Size(689, 429);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
-            // lvFriend
-            // 
-            this.lvFriend.HideSelection = false;
-            this.lvFriend.Location = new System.Drawing.Point(9, 10);
-            this.lvFriend.Margin = new System.Windows.Forms.Padding(2);
-            this.lvFriend.Name = "lvFriend";
-            this.lvFriend.Size = new System.Drawing.Size(228, 204);
-            this.lvFriend.TabIndex = 1;
-            this.lvFriend.UseCompatibleStateImageBehavior = false;
-            this.lvFriend.View = System.Windows.Forms.View.List;
             // 
             // tbMessage
             // 
@@ -124,41 +117,33 @@
             // 
             // lvGroup
             // 
-            this.lvGroup.BackColor = System.Drawing.SystemColors.Menu;
-            this.lvGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lvGroup.FullRowSelect = true;
-            this.lvGroup.GridLines = true;
-            this.lvGroup.HideSelection = false;
-            this.lvGroup.HoverSelection = true;
-            this.lvGroup.LabelWrap = false;
-            this.lvGroup.Location = new System.Drawing.Point(9, 249);
-            this.lvGroup.Margin = new System.Windows.Forms.Padding(2);
-            this.lvGroup.MultiSelect = false;
-            this.lvGroup.Name = "lvGroup";
-            this.lvGroup.Size = new System.Drawing.Size(228, 190);
-            this.lvGroup.TabIndex = 0;
-            this.lvGroup.UseCompatibleStateImageBehavior = false;
-            this.lvGroup.SelectedIndexChanged += new System.EventHandler(this.lvGroup_SelectedIndexChanged);
+            this.lvNotification.HideSelection = false;
+            this.lvNotification.Location = new System.Drawing.Point(9, 249);
+            this.lvNotification.Margin = new System.Windows.Forms.Padding(2);
+            this.lvNotification.Name = "lvNotification";
+            this.lvNotification.Size = new System.Drawing.Size(228, 190);
+            this.lvNotification.TabIndex = 9;
+            this.lvNotification.UseCompatibleStateImageBehavior = false;
             // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(937, 488);
-            this.Controls.Add(this.lvGroup);
+            this.Controls.Add(this.lvNotification);
             this.Controls.Add(this.tbSearchFriend);
             this.Controls.Add(this.btSearch);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.btApprove);
             this.Controls.Add(this.btSendMessage);
             this.Controls.Add(this.tbMessage);
-            this.Controls.Add(this.lvFriend);
             this.Controls.Add(this.listView1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "HomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
             this.Load += new System.EventHandler(this.HomeForm_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvFriend)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -166,7 +151,6 @@
         #endregion
 
         public System.Windows.Forms.ListView listView1;
-        public System.Windows.Forms.ListView lvFriend;
         public System.Windows.Forms.RichTextBox tbMessage;
         public System.Windows.Forms.Button btSendMessage;
         public System.Windows.Forms.Button btApprove;
@@ -174,5 +158,8 @@
         public System.Windows.Forms.Button btSearch;
         public System.Windows.Forms.RichTextBox tbSearchFriend;
         public System.Windows.Forms.ListView lvNotification;
+        private System.Windows.Forms.DataGridView dgvFriend;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn pickColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colUsers;
     }
 }

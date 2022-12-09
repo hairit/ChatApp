@@ -29,6 +29,7 @@ namespace ChatAppServer
         public Form1()
         {
             InitializeComponent();
+            serverSocket = new TcpListener(IPAddress.Parse("192.168.1.106"), 2008);
             serverSocket = new TcpListener(IPAddress.Parse("192.168.1.24"), 2008);
             serverSocket.Start();
         }
@@ -116,12 +117,9 @@ namespace ChatAppServer
                     switch (request.model.ToLower())
                     {
                         case "user":
-                            {
-                                if (!userController.UserHandler(request, workers, from).Result)
-                                {
-                                    from.Send(new response { action = "Error", content = "Some thing went wrong, please try again later!" }.ParseToJson());
-                                }
-                            }
+                        {
+                            userController.UserHandler(request, workers, from);
+                        }
                             break;
                         case "chat":
                             {

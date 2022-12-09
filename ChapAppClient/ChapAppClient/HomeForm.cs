@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlTypes;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -28,27 +29,27 @@ namespace ChapAppClient
 
         public void addItemForFriendListView(string name)
         {
-            if (lvFriend.InvokeRequired)
+            if (dgvFriend.InvokeRequired)
             {
                 var dlg = new AddItemForListView(addItemForFriendListView);
                 this.Invoke(dlg, new object[] { name });
             }
             else
             {
-                lvFriend.Items.Add(new ListViewItem() { Checked = true, Text = name });
+                dgvFriend.Rows.Add(false,name);
             }
         }
 
         public void clearItems()
         {
-            if (lvFriend.InvokeRequired)
+            if (dgvFriend.InvokeRequired)
             {
                 var dlg = new ClearListViewItems(clearItems);
                 this.Invoke(dlg, new object[] { });
             }
             else
             {
-                lvFriend.Items.Clear();
+                dgvFriend.Rows.Clear();
             }
         }
 
