@@ -51,6 +51,7 @@ namespace ChatAppServer.Controller
                     {
                         var model = new ChangePass().GetFromJson(json.content);
                         var response = new response { action = "changepass", content = ChangePage(model).Result };
+                        return true;
                     }
                     break;
                 default:return false;

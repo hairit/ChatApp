@@ -36,7 +36,7 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btSearch = new System.Windows.Forms.Button();
             this.tbSearchFriend = new System.Windows.Forms.RichTextBox();
-            this.lvNotification = new System.Windows.Forms.ListView();
+            this.lvGroup = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // listView1
@@ -87,8 +87,9 @@
             this.btApprove.Name = "btApprove";
             this.btApprove.Size = new System.Drawing.Size(110, 37);
             this.btApprove.TabIndex = 4;
-            this.btApprove.Text = "Đồng ý";
+            this.btApprove.Text = "Làm mới";
             this.btApprove.UseVisualStyleBackColor = true;
+            this.btApprove.Click += new System.EventHandler(this.btApprove_Click);
             // 
             // button2
             // 
@@ -119,22 +120,30 @@
             this.tbSearchFriend.TabIndex = 8;
             this.tbSearchFriend.Text = "";
             // 
-            // lvNotification
+            // lvGroup
             // 
-            this.lvNotification.HideSelection = false;
-            this.lvNotification.Location = new System.Drawing.Point(9, 249);
-            this.lvNotification.Margin = new System.Windows.Forms.Padding(2);
-            this.lvNotification.Name = "lvNotification";
-            this.lvNotification.Size = new System.Drawing.Size(228, 190);
-            this.lvNotification.TabIndex = 9;
-            this.lvNotification.UseCompatibleStateImageBehavior = false;
+            this.lvGroup.BackColor = System.Drawing.SystemColors.Menu;
+            this.lvGroup.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lvGroup.FullRowSelect = true;
+            this.lvGroup.GridLines = true;
+            this.lvGroup.HideSelection = false;
+            this.lvGroup.HoverSelection = true;
+            this.lvGroup.LabelWrap = false;
+            this.lvGroup.Location = new System.Drawing.Point(9, 249);
+            this.lvGroup.Margin = new System.Windows.Forms.Padding(2);
+            this.lvGroup.MultiSelect = false;
+            this.lvGroup.Name = "lvGroup";
+            this.lvGroup.Size = new System.Drawing.Size(228, 190);
+            this.lvGroup.TabIndex = 0;
+            this.lvGroup.UseCompatibleStateImageBehavior = false;
+            this.lvGroup.SelectedIndexChanged += new System.EventHandler(this.lvGroup_SelectedIndexChanged);
             // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(937, 488);
-            this.Controls.Add(this.lvNotification);
+            this.Controls.Add(this.lvGroup);
             this.Controls.Add(this.tbSearchFriend);
             this.Controls.Add(this.btSearch);
             this.Controls.Add(this.button2);
@@ -147,20 +156,21 @@
             this.Name = "HomeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Home";
+            this.Load += new System.EventHandler(this.HomeForm_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.ListView listView1;
-        private System.Windows.Forms.ListView lvFriend;
-        private System.Windows.Forms.RichTextBox tbMessage;
-        private System.Windows.Forms.Button btSendMessage;
-        private System.Windows.Forms.Button btApprove;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button btSearch;
-        private System.Windows.Forms.RichTextBox tbSearchFriend;
-        private System.Windows.Forms.ListView lvNotification;
+        public System.Windows.Forms.ListView listView1;
+        public System.Windows.Forms.ListView lvFriend;
+        public System.Windows.Forms.RichTextBox tbMessage;
+        public System.Windows.Forms.Button btSendMessage;
+        public System.Windows.Forms.Button btApprove;
+        public System.Windows.Forms.Button button2;
+        public System.Windows.Forms.Button btSearch;
+        public System.Windows.Forms.RichTextBox tbSearchFriend;
+        public System.Windows.Forms.ListView lvGroup;
     }
 }

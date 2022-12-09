@@ -25,10 +25,11 @@ namespace ChatAppServer
         private List<Worker> workers = new List<Worker>();
         private readonly UserController userController = new UserController();
         private readonly ChatController chatController = new ChatController();
+        private readonly GroupController groupController = new GroupController();
         public Form1()
         {
             InitializeComponent();
-            serverSocket = new TcpListener(IPAddress.Parse("192.168.3.65"), 2008);
+            serverSocket = new TcpListener(IPAddress.Parse("192.168.1.24"), 2008);
             serverSocket.Start();
         }
 
@@ -125,6 +126,14 @@ namespace ChatAppServer
                         case "chat":
                             {
                                 if (!chatController.ChatHandler(request, workers, from).Result)
+                                {
+                                    from.Send(new response { action = "Error", content = "Some thing went wrong, please try again later!" }.ParseToJson());
+                                }
+                            }
+                            break;
+                        case "group":
+                            {
+                                if (!groupController.GroupHandler(request, workers, from).Result)
                                 {
                                     from.Send(new response { action = "Error", content = "Some thing went wrong, please try again later!" }.ParseToJson());
                                 }

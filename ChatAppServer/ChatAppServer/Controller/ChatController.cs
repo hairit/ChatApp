@@ -27,9 +27,12 @@ namespace ChatAppServer.Controller
                         return await sendChat(model, workers, from);
                     }
                     break;
-                case "get":
+                case "getallmess":
                     {
                         var model = new GetByGroup().GetFromJson(json.content);
+                        var response = new response { action = "getallmess", content = getAllMessage(model) };
+                        from.Send(response.ParseToJson());
+                        return true;
                     }
                     break;
                 default: return false;
@@ -56,7 +59,7 @@ namespace ChatAppServer.Controller
             }
                 
         }
-        private async Task<string> getAllMessage(GetByGroup model)
+        private  string getAllMessage(GetByGroup model)
         {
             try
             {

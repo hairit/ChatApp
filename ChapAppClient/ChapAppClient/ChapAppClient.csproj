@@ -87,7 +87,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DTO\AllGroup.cs" />
     <Compile Include="DTO\Base.cs" />
+    <Compile Include="DTO\GetGroupByUser.cs" />
     <Compile Include="DTO\GetUser.cs" />
     <Compile Include="DTO\Login.cs" />
     <Compile Include="DTO\Response.cs" />

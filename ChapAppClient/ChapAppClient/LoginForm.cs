@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net.Sockets;
 using System.Text;
 using System.Threading;
@@ -21,11 +23,12 @@ namespace ChapAppClient
         private Stream stream;
         private HomeForm homeForm;
         private RegisterForm registerForm;
-
+        public ChatUser user;
+        public List<ChatGroup> listGr;
         public LoginForm()
         {
             InitializeComponent();
-            this.socket = new TcpClient("192.168.1.106", 2008);
+            this.socket = new TcpClient("192.168.1.24", 2008);
             this.stream = socket.GetStream();
             this.homeForm = new HomeForm(this);
             this.registerForm = new RegisterForm(this);
@@ -194,10 +197,12 @@ namespace ChapAppClient
                 case "login":
                     try
                     {
-                        ChatUser user = new ChatUser().GetFromJson(response.content);
-                        this.homeForm.Show();
+                        user = new ChatUser().GetFromJson(response.content);
                         hideLoginForm();
+                        this.homeForm.Show();
                         Application.Run();
+                        this.socket = new TcpClient("192.168.1.24", 2008);
+                        this.stream = socket.GetStream();
                     }
                     catch (Exception e)
                     {
@@ -227,6 +232,16 @@ namespace ChapAppClient
                     }
                     break;
                 case "user":
+                    break;
+                case "getall":
+                    {
+                        listGr = new AllGroup().GetFromJson(response.content).list;
+                        if (listGr.Count!=0)
+                        {
+                            var listItem = listGr.Select(x => x.GroupName).ToList();
+                            this.homeForm.SetTextToLvGroup(listItem);
+                        }
+                    }
                     break;
                 default:
                     break;

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace ChatAppServer.Controller
@@ -33,6 +34,15 @@ namespace ChatAppServer.Controller
                         var model = new AddMember().GetFromJson(json.content);
                         var response = new response { action = "addmember", content = AddMem(model).Result };
                         from.Send(response.ParseToJson());
+                        return true;
+                    }
+                    break;
+                case "getall":
+                    {
+                        var model = new GetGroupByUser().GetFromJson(json.content);
+                        var response = new response { action = "getall", content = GetByUser(model).Result };
+                        from.Send(response.ParseToJson());
+                        return true;
                     }
                     break;
                 default: return false;
@@ -94,6 +104,24 @@ namespace ChatAppServer.Controller
             } catch(Exception ex)
             {
                 return "Add member fail!";
+            }
+        }
+        private async Task<string> GetByUser(GetGroupByUser model)
+        {
+            try
+            {
+                var list = _context.GroupUsers.Where(x => x.UserId == model.userID).ToList();
+                if (list == null) return null;
+                var listGrid = list.Select(x => x.GroupId).Distinct().ToList();
+                var listGr = new List<ChatGroup>();
+                foreach(var id in listGrid)
+                {
+                    listGr.Add(_context.ChatGroups.First(x => x.GroupId == id));
+                }
+                return JsonSerializer.Serialize(new AllGroup { list = listGr});
+            } catch(Exception ex)
+            {
+                return "something went wrong";
             }
         }
     }
