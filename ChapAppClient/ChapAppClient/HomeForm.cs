@@ -18,10 +18,5 @@ namespace ChapAppClient
             InitializeComponent();
             this.loginFrom = loginForm;
         }
-
-        private void listView2_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
 }
