@@ -7,7 +7,7 @@ namespace ChapAppClient
     public partial class RegisterForm : Form
     {
         private readonly LoginForm _loginForm;
-
+        private delegate void CallDelegate(string text);
         public RegisterForm(LoginForm loginForm)
         {
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace ChapAppClient
 
             ChatUser user = new ChatUser()
             {
-                UserId = new Guid(),
+                UserId = Guid.NewGuid(),
                 Name = tbName.Text,
                 UserName = tbUsername.Text,
                 Password = tbPassword.Text
@@ -43,7 +43,20 @@ namespace ChapAppClient
                 content = user.ParseToJson()
             };
 
-            //_client.Send(request.ParseToJson());
+            this._loginForm.Send(request.ParseToJson());
+        }
+
+        public void SetText(string text)
+        {
+            if (tbUsername.InvokeRequired)
+            {
+                var dlg = new CallDelegate(SetText);
+                tbUsername.Invoke(dlg, new object[] { text });
+            }
+            else
+            {
+                tbUsername.Text = text + Environment.NewLine;
+            }
         }
 
         private void RegisterForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -53,7 +66,7 @@ namespace ChapAppClient
 
         private void btnBackLogin_Click(object sender, EventArgs e)
         {
-            this.Close();
+            this.Hide();
         }
     }
 }

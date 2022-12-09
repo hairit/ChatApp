@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ChatAppServer.Model
 {
-    public class response
+    public class Response
     {
         public string action { get; set; }
         public string content { get; set; }
@@ -15,9 +15,9 @@ namespace ChatAppServer.Model
         {
             return JsonSerializer.Serialize(this);
         }
-        public response GetFromJson(string json)
+        public Response GetFromJson(string json)
         {
-            return JsonSerializer.Deserialize<response>(json);
+            return JsonSerializer.Deserialize<Response>(json);
         }
     }
 }

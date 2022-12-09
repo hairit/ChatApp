@@ -174,17 +174,17 @@
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button btnDangKy;
-        private System.Windows.Forms.Label lbWarning;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox tbUsername;
-        private System.Windows.Forms.TextBox tbRePassword;
-        private System.Windows.Forms.TextBox tbPassword;
-        private System.Windows.Forms.Button btnBackLogin;
-        private System.Windows.Forms.TextBox tbName;
-        private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Label label2;
+        public System.Windows.Forms.Button btnDangKy;
+        public System.Windows.Forms.Label lbWarning;
+        public System.Windows.Forms.Label label5;
+        public System.Windows.Forms.Label label6;
+        public System.Windows.Forms.TextBox tbUsername;
+        public System.Windows.Forms.TextBox tbRePassword;
+        public System.Windows.Forms.TextBox tbPassword;
+        public System.Windows.Forms.Button btnBackLogin;
+        public System.Windows.Forms.TextBox tbName;
+        public System.Windows.Forms.Label label3;
     }
 }

@@ -87,7 +87,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Client.cs" />
     <Compile Include="HomeForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,7 +106,7 @@
     <Compile Include="Model\Context.cs" />
     <Compile Include="Model\GroupUser.cs" />
     <Compile Include="Model\Login.cs" />
-    <Compile Include="Model\response.cs" />
+    <Compile Include="Model\Response.cs" />
     <Compile Include="obj\Debug\.NETFramework,Version=v4.8.AssemblyAttributes.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
