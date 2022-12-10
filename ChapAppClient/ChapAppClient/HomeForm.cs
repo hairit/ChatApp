@@ -93,10 +93,6 @@ namespace ChapAppClient
             }
         }
 
-        private void HomeForm_Load(object sender, EventArgs e)
-        {
-            this.loginFrom.Start();
-        }
 
         private void btApprove_Click(object sender, EventArgs e)
         {

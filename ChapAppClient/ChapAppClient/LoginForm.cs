@@ -33,7 +33,7 @@ namespace ChapAppClient
         public LoginForm()
         {
             InitializeComponent();
-            this.socket = new TcpClient("192.168.1.24", 2008);
+            this.socket = new TcpClient("192.168.31.163", 2008);
             this.stream = socket.GetStream();
             this.homeForm = new HomeForm(this);
             this.registerForm = new RegisterForm(this);

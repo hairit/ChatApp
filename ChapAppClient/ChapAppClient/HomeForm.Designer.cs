@@ -35,12 +35,11 @@
             this.button2 = new System.Windows.Forms.Button();
             this.btSearch = new System.Windows.Forms.Button();
             this.tbSearchFriend = new System.Windows.Forms.RichTextBox();
-            this.lvNotification = new System.Windows.Forms.ListView();
+            this.lvGroup = new System.Windows.Forms.ListView();
             this.dgvFriend = new System.Windows.Forms.DataGridView();
             this.pickColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.colUsers = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFriend)).BeginInit();
-            this.lvGroup = new System.Windows.Forms.ListView();
             this.SuspendLayout();
             // 
             // listView1
@@ -117,20 +116,20 @@
             // 
             // lvGroup
             // 
-            this.lvNotification.HideSelection = false;
-            this.lvNotification.Location = new System.Drawing.Point(9, 249);
-            this.lvNotification.Margin = new System.Windows.Forms.Padding(2);
-            this.lvNotification.Name = "lvNotification";
-            this.lvNotification.Size = new System.Drawing.Size(228, 190);
-            this.lvNotification.TabIndex = 9;
-            this.lvNotification.UseCompatibleStateImageBehavior = false;
+            this.lvGroup.HideSelection = false;
+            this.lvGroup.Location = new System.Drawing.Point(9, 249);
+            this.lvGroup.Margin = new System.Windows.Forms.Padding(2);
+            this.lvGroup.Name = "lvGroup";
+            this.lvGroup.Size = new System.Drawing.Size(228, 190);
+            this.lvGroup.TabIndex = 9;
+            this.lvGroup.UseCompatibleStateImageBehavior = false;
             // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(937, 488);
-            this.Controls.Add(this.lvNotification);
+            this.Controls.Add(this.lvGroup);
             this.Controls.Add(this.tbSearchFriend);
             this.Controls.Add(this.btSearch);
             this.Controls.Add(this.button2);
@@ -157,7 +156,7 @@
         public System.Windows.Forms.Button button2;
         public System.Windows.Forms.Button btSearch;
         public System.Windows.Forms.RichTextBox tbSearchFriend;
-        public System.Windows.Forms.ListView lvNotification;
+        public System.Windows.Forms.ListView lvGroup;
         private System.Windows.Forms.DataGridView dgvFriend;
         private System.Windows.Forms.DataGridViewCheckBoxColumn pickColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn colUsers;
