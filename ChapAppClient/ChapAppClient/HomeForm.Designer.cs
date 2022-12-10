@@ -41,6 +41,7 @@
             this.colUsers = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvFriend)).BeginInit();
             this.lvGroup = new System.Windows.Forms.ListView();
+            //command
             this.SuspendLayout();
             // 
             // listView1
