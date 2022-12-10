@@ -124,6 +124,31 @@
             this.lvGroup.TabIndex = 9;
             this.lvGroup.UseCompatibleStateImageBehavior = false;
             // 
+            // dgvFriend
+            // 
+            this.dgvFriend.BackgroundColor = System.Drawing.SystemColors.ButtonFace;
+            this.dgvFriend.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvFriend.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.pickColumn,
+            this.colUsers});
+            this.dgvFriend.Location = new System.Drawing.Point(9, 10);
+            this.dgvFriend.Name = "dgvFriend";
+            this.dgvFriend.RowHeadersVisible = false;
+            this.dgvFriend.Size = new System.Drawing.Size(227, 203);
+            this.dgvFriend.TabIndex = 10;
+            // 
+            // pickColumn
+            // 
+            this.pickColumn.HeaderText = "";
+            this.pickColumn.Name = "pickColumn";
+            this.pickColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            // 
+            // colUsers
+            // 
+            this.colUsers.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colUsers.HeaderText = "Users";
+            this.colUsers.Name = "colUsers";
+            // 
             // HomeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);

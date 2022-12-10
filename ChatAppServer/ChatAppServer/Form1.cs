@@ -120,14 +120,6 @@ namespace ChatAppServer
                             userController.UserHandler(request, workers, from);
                         }
                             break;
-                        case "chat":
-                            {
-                                if (!chatController.ChatHandler(request, workers, from).Result)
-                                {
-                                    from.Send(new response { action = "Error", content = "Some thing went wrong, please try again later!" }.ParseToJson());
-                                }
-                            }
-                            break;
                         case "group":
                             {
                                 if (!groupController.GroupHandler(request, workers, from).Result)
